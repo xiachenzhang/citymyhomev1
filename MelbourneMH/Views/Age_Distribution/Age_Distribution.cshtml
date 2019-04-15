@@ -1,0 +1,1000 @@
+﻿@model IEnumerable<MelbourneMH.Models.Age_Distribution>
+@{
+    ViewBag.Title = "PopAgegroup";
+    Layout = null;
+
+}
+<head>
+    <link href="~/Content/laynav.css" rel="stylesheet" />
+    <link href="~/Content/narbarside.css" rel="stylesheet" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highstock/2.1.8/highstock-all.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link href="~/Content/Gender.css" rel="stylesheet" />
+    <link href="~/Content/AgeGroup1.css" rel="stylesheet" />
+    @*<link href="~/Content/AgeGroup.css" rel="stylesheet" />*@
+    <link href="https://fonts.googleapis.com/css?family=Hammersmith+One" rel="stylesheet">
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div id="menu" style="background-color:#61a1ab;z-index:9999">
+        <div class="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <div class="menu-inner">
+
+            <ul class="newstyle">
+                <li class="newstyle">
+                    <a class="link-3" href="~/Home/Home">Home</a>
+                </li>
+                <li class="newstyle"> <a class="link-3" href="~/Home/DataSelection">Data</a></li>
+                <li class="newstyle"> <a class="link-3" href="~/Pop/PopOverview">Overview</a></li>
+                <li class="newstyle"><a class="link-3" href="~/Age_Distribution/Age_Distribution">AgeGroup</a></li>
+                <li class="newstyle"><a class="link-3" href="~/Suburb_Population/Suburb_Population">Suburb</a></li>
+                <li class="newstyle"><a class="link-3" href="~/Melbourne_Population/Melbourne_Population">Trend</a></li>
+                <li class="newstyle"><a class="link-3" href="~/Pop/Game">Game</a></li>
+
+            </ul>
+        </div>
+        <svg version="1.1" id="blob" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <path id="blob-path" d="M60,500H0V0h60c0,0,20,172,20,250S60,900,60,500z" />
+        </svg>
+    </div>
+    <script src="~/Scripts/laynav.js"></script>
+    <div id="container" style="border:solid 10px black;width:90%;height:200%;margin-left:6%;">
+        <h1 style="text-align:center;color:white;font-size:48px">Topic: Age Group</h1>
+        <h1 style="font-size:32px;margin-left:4%;margin-right:4%;color:white">
+            The chart charts show the age structure of the population in 2016.
+            Which group has the largest percentage of the population? 
+            How about the smallest?
+        </h1>
+
+
+
+        <h1 style="display:inline-block;margin-left:10%">2016 Age Group</h1>
+        <img style="  display: block;margin: 0 auto;" src="~/Content/human-life-cycle-clipart-1.jpg" />
+        <h1 style="display:inline-block;margin-left:21%;font-size:16px">
+            Baby&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspChilhood&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSchool&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspTeenager&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspAdult&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbspParents&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSeniors&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspElder
+        </h1>
+        <h1 style="display:inline-block;margin-left:21%;font-size:16px">
+            6.4%&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp8.5%&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp6.7%&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp10%&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp16.3%&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp33%&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp9.3%&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp9.7%
+        </h1>
+    </div>
+        @*<h1 style="display:inline-block;color:white;margin-left:35%">2016 Age Structure</h1>
+                <main ng-app="app" style="margin-top:-15%">
+                    <section class="container" ng-controller="Controller as ctrl">
+                        <pie-chart portfolio="ctrl.portfolio" style="margin-left:5%"></pie-chart>
+                    </section>
+
+                    <section class="container" ng-controller="Controller1 as ctrl" >
+                        <pie-chart portfolio="ctrl.portfolio"></pie-chart>
+                    </section>
+
+
+                </main>
+            </div>
+            <script>
+
+        class Controller {
+            constructor() {
+                this.portfolio = {
+                    id: 123,
+                    portfolioAssets: [
+                        {
+                            id: 123,
+                            name: '@foreach (var item in Model)
+                            { if (item.TypeId == 11)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.Age_Description)
+                                }} ',
+                            symbol: '@foreach (var item in Model)
+                            { if (item.TypeId == 11)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.Age_Group)
+                                }}',
+                            percentage: @foreach (var item in Model)
+                            { if (item.TypeId == 11)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.AgeDist_)
+                                }}
+                        },
+
+                        {
+                            id: 124,
+                            name: '@foreach (var item in Model)
+                            { if (item.TypeId == 12)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.Age_Description)
+                                }} ',
+                            symbol: '@foreach (var item in Model)
+                            { if (item.TypeId == 12)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.Age_Group)
+                                }}',
+                            percentage: @foreach (var item in Model)
+                            { if (item.TypeId == 12)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.AgeDist_)
+                                }}
+                        },
+
+                        {
+                            id: 125,
+                            name: '@foreach (var item in Model)
+                            { if (item.TypeId == 13)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.Age_Description)
+                                }} ',
+                            symbol: '@foreach (var item in Model)
+                            { if (item.TypeId == 13)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.Age_Group)
+                                }}',
+                            percentage: @foreach (var item in Model)
+                            { if (item.TypeId == 13)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.AgeDist_)
+                                }}
+                        },
+
+                        {
+                            id: 126,
+                            name: '@foreach (var item in Model)
+                            { if (item.TypeId == 14)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.Age_Description)
+                                }} ',
+                            symbol: '@foreach (var item in Model)
+                            { if (item.TypeId == 14)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.Age_Group)
+                                }}',
+                            percentage: @foreach (var item in Model)
+                            { if (item.TypeId == 14)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.AgeDist_)
+                                }}
+                        },
+
+                        {
+                            id: 127,
+                            name: '@foreach (var item in Model)
+                            { if (item.TypeId == 15)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.Age_Description)
+                                }} ',
+                            symbol: '@foreach (var item in Model)
+                            { if (item.TypeId == 15)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.Age_Group)
+                                }}',
+                            percentage: @foreach (var item in Model)
+                            { if (item.TypeId == 15)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.AgeDist_)
+                                }}
+                        },
+
+                        {
+                            id: 128,
+                            name: '@foreach (var item in Model)
+                            { if (item.TypeId == 16)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.Age_Description)
+                                }} ',
+                            symbol: '@foreach (var item in Model)
+                            { if (item.TypeId == 16)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.Age_Group)
+                                }}',
+                            percentage: @foreach (var item in Model)
+                            { if (item.TypeId == 16)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.AgeDist_)
+                                }}
+                        },
+
+                        {
+                            id: 129,
+                            name: '@foreach (var item in Model)
+                            { if (item.TypeId == 17)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.Age_Description)
+                                }} ',
+                            symbol: '@foreach (var item in Model)
+                            { if (item.TypeId == 17)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.Age_Group)
+                                }}',
+                            percentage: @foreach (var item in Model)
+                            { if (item.TypeId == 17)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.AgeDist_)
+                                }}
+                        },
+
+                        {
+                            id: 130,
+                            name: '@foreach (var item in Model)
+                            { if (item.TypeId == 18)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.Age_Description)
+                                }} ',
+                            symbol: '@foreach (var item in Model)
+                            { if (item.TypeId == 18)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.Age_Group)
+                                }}',
+                            percentage: @foreach (var item in Model)
+                            { if (item.TypeId == 18)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.AgeDist_)
+                                }}
+                        },
+
+                        {
+                            id: 131,
+                            name: '@foreach (var item in Model)
+                            { if (item.TypeId == 19)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.Age_Description)
+                                }} ',
+                            symbol: '@foreach (var item in Model)
+                            { if (item.TypeId == 19)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.Age_Group)
+                                }}',
+                            percentage: @foreach (var item in Model)
+                            { if (item.TypeId == 19)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.AgeDist_)
+                                }}
+                        },
+
+                        {
+                            id: 132,
+                            name: '@foreach (var item in Model)
+                            { if (item.TypeId == 20)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.Age_Description)
+                                }} ',
+                            symbol: '@foreach (var item in Model)
+                            { if (item.TypeId == 20)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.Age_Group)
+                                }}',
+                            percentage: @foreach (var item in Model)
+                            { if (item.TypeId == 20)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.AgeDist_)
+                                }}
+                        }]
+                };
+
+
+
+            }
+        }
+
+        class Controller1 {
+            constructor() {
+                this.portfolio = {
+                    id: 123,
+                    portfolioAssets: [
+                        {
+                            id: 123,
+                            name: '@foreach (var item in Model)
+                            { if (item.TypeId == 1)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.Age_Description)
+                                }} ',
+                            symbol: '@foreach (var item in Model)
+                            { if (item.TypeId == 1)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.Age_Group)
+                                }}',
+                            percentage: @foreach (var item in Model)
+                            { if (item.TypeId == 1)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.AgeDist_)
+                                }}
+                        },
+
+                        {
+                            id: 124,
+                            name: '@foreach (var item in Model)
+                            { if (item.TypeId == 2)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.Age_Description)
+                                }} ',
+                            symbol: '@foreach (var item in Model)
+                            { if (item.TypeId == 2)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.Age_Group)
+                                }}',
+                            percentage: @foreach (var item in Model)
+                            { if (item.TypeId == 2)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.AgeDist_)
+                                }}
+                        },
+
+                        {
+                            id: 125,
+                            name: '@foreach (var item in Model)
+                            { if (item.TypeId == 3)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.Age_Description)
+                                }} ',
+                            symbol: '@foreach (var item in Model)
+                            { if (item.TypeId == 3)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.Age_Group)
+                                }}',
+                            percentage: @foreach (var item in Model)
+                            { if (item.TypeId == 3)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.AgeDist_)
+                                }}
+                        },
+
+                        {
+                            id: 126,
+                            name: '@foreach (var item in Model)
+                            { if (item.TypeId == 4)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.Age_Description)
+                                }} ',
+                            symbol: '@foreach (var item in Model)
+                            { if (item.TypeId == 4)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.Age_Group)
+                                }}',
+                            percentage: @foreach (var item in Model)
+                            { if (item.TypeId == 4)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.AgeDist_)
+                                }}
+                        },
+
+                        {
+                            id: 127,
+                            name: '@foreach (var item in Model)
+                            { if (item.TypeId == 5)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.Age_Description)
+                                }} ',
+                            symbol: '@foreach (var item in Model)
+                            { if (item.TypeId == 5)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.Age_Group)
+                                }}',
+                            percentage: @foreach (var item in Model)
+                            { if (item.TypeId == 5)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.AgeDist_)
+                                }}
+                        },
+
+                        {
+                            id: 128,
+                            name: '@foreach (var item in Model)
+                            { if (item.TypeId == 6)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.Age_Description)
+                                }} ',
+                            symbol: '@foreach (var item in Model)
+                            { if (item.TypeId == 6)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.Age_Group)
+                                }}',
+                            percentage: @foreach (var item in Model)
+                            { if (item.TypeId == 6)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.AgeDist_)
+                                }}
+                        },
+
+                        {
+                            id: 129,
+                            name: '@foreach (var item in Model)
+                            { if (item.TypeId == 7)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.Age_Description)
+                                }} ',
+                            symbol: '@foreach (var item in Model)
+                            { if (item.TypeId == 7)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.Age_Group)
+                                }}',
+                            percentage: @foreach (var item in Model)
+                            { if (item.TypeId == 7)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.AgeDist_)
+                                }}
+                        },
+
+                        {
+                            id: 130,
+                            name: '@foreach (var item in Model)
+                            { if (item.TypeId == 8)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.Age_Description)
+                                }} ',
+                            symbol: '@foreach (var item in Model)
+                            { if (item.TypeId == 8)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.Age_Group)
+                                }}',
+                            percentage: @foreach (var item in Model)
+                            { if (item.TypeId == 8)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.AgeDist_)
+                                }}
+                        },
+
+                        {
+                            id: 131,
+                            name: '@foreach (var item in Model)
+                            { if (item.TypeId == 9)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.Age_Description)
+                                }} ',
+                            symbol: '@foreach (var item in Model)
+                            { if (item.TypeId == 9)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.Age_Group)
+                                }}',
+                            percentage: @foreach (var item in Model)
+                            { if (item.TypeId == 9)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.AgeDist_)
+                                }}
+                        },
+
+                        {
+                            id: 132,
+                            name: '@foreach (var item in Model)
+                            { if (item.TypeId == 10)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.Age_Description)
+                                }} ',
+                            symbol: '@foreach (var item in Model)
+                            { if (item.TypeId == 10)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.Age_Group)
+                                }}',
+                            percentage: @foreach (var item in Model)
+                            { if (item.TypeId == 10)
+                                    {
+                                    @Html.DisplayFor(modelItem => item.AgeDist_)
+                                }}
+                        }]
+                };
+
+
+
+            }
+        }
+
+        angular.module('app', []).
+            factory('highstock', $window => {
+                const Highcharts = $window.Highcharts;
+                // Pie chart has gap bug: https://github.com/highcharts/highcharts/issues/1828
+                Highcharts.wrap(Highcharts.seriesTypes.pie.prototype, 'drawPoints', function (proceed) {
+                    if (this.options.borderColor == null && this.options.borderWidth >= 1) {
+                        Highcharts.each(this.points, point => {
+                            point.pointAttr['']['stroke-width'] = 1;
+                            point.pointAttr[''].stroke = point.pointAttr[''].fill;
+                            point.pointAttr['hover']['stroke-width'] = 1;
+                            point.pointAttr['hover'].stroke = point.pointAttr['hover'].fill;
+                            point.pointAttr['select']['stroke-width'] = 1;
+                            point.pointAttr['select'].stroke = point.pointAttr['select'].fill;
+                        });
+                    }
+                    proceed.apply(this);
+                });
+
+                return Highcharts;
+            }).
+
+            controller('Controller', Controller).
+            controller('Controller1', Controller1).
+            directive('pieChart', ($timeout, highstock) => {
+                let colors = [
+                    '#CD5955',
+                    '#E96D66',
+                    '#EC876C',
+                    '#EFA071',
+                    '#EFB278',
+                    '#EEC27D',
+                    '#DEC782',
+                    '#BCBB87',
+                    '#99AD8A',
+                    '#7B9D8A',
+                    '#5E8D8A'];
+
+                let chartConfig = {
+                    chart: {
+                        type: 'pie',
+                        //renderTo: null,
+                        height: 300,
+                        backgroundColor: 'none',
+                        events: {
+                            //load: null
+                        }
+                    },
+
+                    title: {
+                        style: { display: 'none' }
+                    },
+
+                    subtitle: {
+                        style: { display: 'none' }
+                    },
+
+                    yAxis: {
+                        title: {
+                            text: 'Total percent market share'
+                        }
+                    },
+
+
+                    plotOptions: {
+                        pie: {
+                            shadow: false,
+                            center: ['50%', '50%'],
+                            colors: colors,
+                            borderWidth: 1,
+                            borderColor: null,
+                            stickyTracking: false,
+                            dataLabels: {
+                                enabled: false
+                            },
+
+                            states: {
+                                hover: {
+                                    brightness: 0
+                                }
+                            }
+                        }
+                    },
+
+
+
+
+                    tooltip: {
+                        backgroundColor: '',
+                        borderWidth: 0,
+                        useHTML: true,
+                        formatter() {
+                            console.log('this is ', this);
+                            let point = this.point;
+                            return `
+                            <section class="donut-chart-tooltip">
+                                <i style="background-color:${point.color}"><span class="point-percentage">${point.y + '%'}</span></i>
+                                <span class="point-name" style="color:${point.color}">${point.name}</span>
+                            </section>
+                        `;
+                        }
+                    },
+
+                    series: [{
+                        name: 'Assets Percentage',
+                        data: null, // To be set
+                        size: '100%',
+                        innerSize: '60%'
+                    }],
+
+                    exporting: {
+                        enabled: false
+                    },
+
+                    credits: {
+                        enabled: false
+                    }
+                };
+
+
+
+                return {
+                    restrict: 'AE',
+                    scope: {
+                        portfolio: '=',
+                        chartTitle: '@@'
+                    },
+
+                    template: `
+                        <header class="portfolio-assets-donut-chart-title">
+                            <h3 ng-bind="chartTitle"></h3>
+                        </header>
+                        <div class="portfolio-assets-donut-chart"></div>
+                        <ul class="portfolio-assets-legend">
+                            <li ng-repeat="asset in portfolio.portfolioAssets">
+                                <div class="item-container">
+                                <div class="color-label"><i ng-style="{'background-color': getColorByIndex($index)}"></i></div>
+                                <div class="asset-details">
+                                    <span ng-style="{'color': getColorByIndex($index)}" class="percentage" ng-bind="asset.percentage + '%'"></span>
+                                    <h4 ng-style="{'color': getColorByIndex($index)}" ng-bind="asset.name"></h4>
+                                    <h5 ng-bind="asset.symbol"><h5>
+                                </div>
+                                </div>
+                            </li>
+                        </ul>
+                `,
+                    link(scope, elem) {
+                        const titleElem = elem[0].getElementsByClassName('portfolio-assets-donut-chart-title')[0];
+                        const chartElem = elem[0].getElementsByClassName('portfolio-assets-donut-chart')[0];
+                        const portfolio = scope.portfolio;
+
+                        let chart = null;
+                        let createChart = () => {
+                            // Process data
+                            let data = portfolio.portfolioAssets.map(item => {
+                                return {
+                                    y: item.percentage,
+                                    name: item.name
+                                };
+
+                            });
+
+                            chartConfig.series[0].data = data;
+
+                            chart = new highstock.Chart(chartConfig);
+                        };
+
+                        scope.getColorByIndex = i => {
+                            let len = colors.length;
+                            return colors[i % len];
+                        };
+
+                        const positionTitle = function () {
+                            console.log('positioning title', chart);
+                            console.log('this is ', this);
+
+                            Object.assign(titleElem.style, {
+                                width: `${this.plotWidth}px`,
+                                height: `${this.plotHeight}px`,
+                                left: `${this.plotLeft}px`,
+                                top: `${this.plotTop}px`
+                            });
+
+                        };
+
+                        //chartConfig.events.load = positionTitle;
+                        chartConfig.chart.renderTo = chartElem;
+                        chartConfig.chart.events.load = positionTitle;
+                        chartConfig.chart.events.redraw = positionTitle;
+                        createChart();
+                    }
+                };
+
+            });
+                </script>*@
+
+        @*<section class="bar-chart">
+
+            <p>Can you find which age group has the most percentage of population?</p>
+
+            <ul class="chart-xaxis">
+                <li>0%</li>
+                <li>100%</li>
+            </ul>
+
+            <div class="chart-row">
+                <p class="chart-caption">Babies and pre-schoolers(0-4)</p>
+                <div class="bar-wrap">
+                    <span>
+                        @foreach (var item in Model)
+                        {
+                            if (item.TypeId == 1)
+                            {
+                                @Html.DisplayFor(modelItem => item.AgeDist_)
+                            }
+                        }%
+                    </span>
+                    <div class="chart-bar" data-bar-value="@foreach (var item in Model)
+                    { if (item.TypeId == 1)
+                            {
+                            @Html.DisplayFor(modelItem => item.AgeDist_)
+                        }}%"></div>
+                </div>
+                <img src="~/Content/baby.png" />
+            </div>
+
+            <div class="chart-row">
+
+                <p class="chart-caption">Primary schoolers (5-11)</p>
+                <div class="bar-wrap">
+                    <span>
+                        @foreach (var item in Model)
+                        {
+                            if (item.TypeId == 2)
+                            {
+                                @Html.DisplayFor(modelItem => item.AgeDist_)
+                            }
+                        }%
+                    </span>
+                    <div class="chart-bar" data-bar-value="@foreach (var item in Model)
+                    { if (item.TypeId == 2)
+                            {
+                            @Html.DisplayFor(modelItem => item.AgeDist_)
+                        }}%"></div>
+
+                </div>
+                <img src="~/Content/primary.png" />
+            </div>
+
+            <div class="chart-row">
+                <p class="chart-caption">Secondary schoolers (12 to 17)</p>
+                <div class="bar-wrap">
+                    <span>
+                        @foreach (var item in Model)
+                        {
+                            if (item.TypeId == 3)
+                            {
+                                @Html.DisplayFor(modelItem => item.AgeDist_)
+                            }
+                        }%
+                    </span>
+                    <div class="chart-bar" data-bar-value="@foreach (var item in Model)
+                    { if (item.TypeId == 3)
+                            {
+                            @Html.DisplayFor(modelItem => item.AgeDist_)
+                        }}%"></div>
+                </div>
+                <img src="~/Content/secondary.png" />
+            </div>
+
+
+            <div class="chart-row">
+                <p class="chart-caption">Tertiary education and independence (18 to 24)</p>
+                <div class="bar-wrap">
+                    <span>
+                        @foreach (var item in Model)
+                        {
+                            if (item.TypeId == 4)
+                            {
+                                @Html.DisplayFor(modelItem => item.AgeDist_)
+                            }
+                        }%
+                    </span>
+                    <div class="chart-bar" data-bar-value="@foreach (var item in Model)
+                    { if (item.TypeId == 4)
+                            {
+                            @Html.DisplayFor(modelItem => item.AgeDist_)
+                        }}%"></div>
+                </div>
+                <img src="~/Content/independence.png" />
+            </div>
+
+            <div class="chart-row">
+                <p class="chart-caption">Young workforce (25 to 34)</p>
+                <div class="bar-wrap">
+                    <span>
+                        @foreach (var item in Model)
+                        {
+                            if (item.TypeId == 5)
+                            {
+                                @Html.DisplayFor(modelItem => item.AgeDist_)
+                            }
+                        }%
+                    </span>
+                    <div class="chart-bar" data-bar-value="@foreach (var item in Model)
+                    { if (item.TypeId == 5)
+                            {
+                            @Html.DisplayFor(modelItem => item.AgeDist_)
+                        }}%"></div>
+                </div>
+                <img src="~/Content/young.png" />
+            </div>
+
+            <div class="chart-row">
+                <p class="chart-caption">Parents and homebuilders (35 to 49)</p>
+                <div class="bar-wrap">
+                    <span>
+                        @foreach (var item in Model)
+                        {
+                            if (item.TypeId == 6)
+                            {
+                                @Html.DisplayFor(modelItem => item.AgeDist_)
+                            }
+                        }%
+                    </span>
+                    <div class="chart-bar" data-bar-value="@foreach (var item in Model)
+                    { if (item.TypeId == 6)
+                            {
+                            @Html.DisplayFor(modelItem => item.AgeDist_)
+                        }}%"></div>
+                </div>
+                <img src="~/Content/parents.png" />
+            </div>
+
+            <div class="chart-row">
+                <p class="chart-caption">Older workers and pre-retirees (50 to 59)</p>
+                <div class="bar-wrap">
+                    <span>
+                        @foreach (var item in Model)
+                        {
+                            if (item.TypeId == 7)
+                            {
+                                @Html.DisplayFor(modelItem => item.AgeDist_)
+                            }
+                        }%
+                    </span>
+                    <div class="chart-bar" data-bar-value="@foreach (var item in Model)
+                    { if (item.TypeId == 7)
+                            {
+                            @Html.DisplayFor(modelItem => item.AgeDist_)
+                        }}%"></div>
+                </div>
+                <img src="~/Content/Oldworkers.png" />
+            </div>
+
+            <div class="chart-row">
+                <p class="chart-caption">Empty nesters and retirees (60 to 69)</p>
+                <div class="bar-wrap">
+                    <span>
+                        @foreach (var item in Model)
+                        {
+                            if (item.TypeId == 8)
+                            {
+                                @Html.DisplayFor(modelItem => item.AgeDist_)
+                            }
+                        }%
+                    </span>
+                    <div class="chart-bar" data-bar-value="@foreach (var item in Model)
+                    { if (item.TypeId == 8)
+                            {
+                            @Html.DisplayFor(modelItem => item.AgeDist_)
+                        }}%"></div>
+                </div>
+                <img src="~/Content/Seniors.png" />
+            </div>
+
+            <div class="chart-row">
+                <p class="chart-caption">Seniors (70 to 84)</p>
+                <div class="bar-wrap">
+                    <span>
+                        @foreach (var item in Model)
+                        {
+                            if (item.TypeId == 9)
+                            {
+                                @Html.DisplayFor(modelItem => item.AgeDist_)
+                            }
+                        }%
+                    </span>
+                    <div class="chart-bar" data-bar-value="@foreach (var item in Model)
+                    { if (item.TypeId == 9)
+                            {
+                            @Html.DisplayFor(modelItem => item.AgeDist_)
+                        }}%"></div>
+                </div>
+                <img src="~/Content/Empty.png" />
+            </div>
+
+            <div class="chart-row">
+                <p class="chart-caption">Elderly aged (85 and over)</p>
+                <div class="bar-wrap">
+                    <span>
+                        @foreach (var item in Model)
+                        {
+                            if (item.TypeId == 10)
+                            {
+                                @Html.DisplayFor(modelItem => item.AgeDist_)
+                            }
+                        }%
+                    </span>
+                    <div class="chart-bar" data-bar-value="@foreach (var item in Model)
+                    { if (item.TypeId == 10)
+                            {
+                            @Html.DisplayFor(modelItem => item.AgeDist_)
+                        }}%"></div>
+                </div>
+                <img src="~/Content/Elderly.png" />
+            </div>
+
+
+
+
+        </section></div>
+        <script src="~/Scripts/AgeGroup1.js"></script>*@
+
+
+        <div id="container" style="border:solid 10px black;width:90%;height:95%;margin-left:6%;margin-bottom:10%;height:150%">
+            <h1 style="text-align:center;color:white;font-size:48px">Gender Rate</h1>
+            <div id="contenitore">
+                <div class="left">
+
+                    <table>
+                        <caption>&nbsp;Gender &nbsp; &nbsp;&nbsp;Amount &nbsp;&nbsp;&nbsp; Rate</caption>
+                        <tbody>
+
+                            <tr>
+                                <td>Male</td>
+                                <td>
+                                    @foreach (var item in Model)
+                                    {
+                                        if (item.TypeId == 21)
+                                        {
+                                            @Html.DisplayFor(modelItem => item.Male_Population)
+                                        }
+                                    }
+                                </td>
+                                <td>
+                                    @foreach (var item in Model)
+                                    {
+                                        if (item.TypeId == 21)
+                                        {
+                                            @Html.DisplayFor(modelItem => item.Male_)
+                                        }
+                                    }
+                                </td>
+                                <td style="background-color:#003366">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>Female</td>
+                                <td>
+                                    @foreach (var item in Model)
+                                    {
+                                        if (item.TypeId == 21)
+                                        {
+                                            @Html.DisplayFor(modelItem => item.Female_Population)
+                                        }
+
+                                    }
+                                </td>
+                                <td>
+                                    @foreach (var item in Model)
+                                    {
+                                        if (item.TypeId == 21)
+                                        {
+                                            @Html.DisplayFor(modelItem => item.Female_)
+                                        }
+                                    }
+                                </td>
+                                <td style="background-color:#ff6600">&nbsp;</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="left">
+                    <div id="grafico">
+                        <div class="riga" style="top:25%"><div>3,000,000</div></div>
+                        <div class="riga" style="top:50%"><div>2,000,000</div></div>
+                        <div class="riga" style="top:75%"><div>1,000,000</div></div>
+                        <div class="riga" style="top:5%"><div>Population</div></div>
+
+                        <div id="col0" style="background-image: url('../../Content/male.png');left: 25%;top: 46%;" class="column">
+                        </div>
+                        <div id="col1" style="background-image: url('../../Content/woman.png'); left: 50%; top: 42%; background-color: #ff6600;" class="column"> </div>
+
+                    </div>
+                </div>
+                <div class="canc"></div>
+
+            </div>
+            <h1 style="font-family: 'Hammersmith One', sans-serif;font-size:32px;margin-left:4%;margin-top:10%">Tip!</h1>
+            <p style="font-family: 'Hammersmith One', sans-serif;font-size:24px;margin-left:4%;margin-right:4%">
+                The proportion of boys and girls in our home is basically the same. Boys and girls are equal.
+                Let us help each other, get along well and become good friends.
+            </p>
+
+        </div>
+
+        <script src="~/Scripts/Gender.js"></script>
+
+
+</body>

@@ -1,0 +1,217 @@
+﻿div.component.bar-chart {
+    
+    height: 600px;
+    background-color: #83d6c7;
+    margin: 0;
+}
+
+    div.component.bar-chart div.container {
+        height: 100%;
+        position: relative;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+button {
+    z-index: 2;
+    position: relative;
+    top: 20px;
+    left: 20px;
+    font-size: 1em;
+    padding: 0.3em 0.7em;
+}
+
+div.bar {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    width: 19%;
+    text-align: center;
+}
+
+    div.bar div.track {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: linear-gradient(to bottom, #e2e2e2 0%, #fff 100%);
+        transition: bottom 1s cubic-bezier(0.01, 0.5, 0.33, 0.89);
+    }
+
+    div.bar div.value {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: auto;
+        bottom: 0;
+        text-transform: uppercase;
+        transition: bottom 1s cubic-bezier(0.01, 0.5, 0.33, 0.89);
+    }
+
+        div.bar div.value img {
+            margin-bottom: -8px;
+        }
+
+        div.bar div.value h1 {
+            color: #363636;
+            font-size: 2.7em;
+            margin-top: 0;
+            margin-bottom: .65em;
+            font-weight: 800;
+        }
+
+    div.bar div.solid {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: 100%;
+        color: #fff;
+        background-color: #9d1939;
+        text-transform: uppercase;
+        padding: 0 .8em;
+        transition: top 1s cubic-bezier(0.01, 0.5, 0.33, 0.89);
+    }
+
+        div.bar div.solid h3 {
+            margin-top: 1.5em;
+            margin-bottom: 0;
+            line-height: 1em;
+        }
+
+        div.bar div.solid h6 {
+            margin-top: 4px;
+            font-weight: 400;
+            font-size: .8em;
+        }
+
+    div.bar.one {
+        left: 0;
+    }
+
+        div.bar.one.active div.track,
+        div.bar.one.active div.value {
+            bottom: 15%;
+        }
+
+        div.bar.one.active div.solid {
+            top: 85%;
+        }
+
+    div.bar.two {
+        left: 20%;
+    }
+
+        div.bar.two.active div.track,
+        div.bar.two.active div.value {
+            bottom: 30%;
+        }
+
+        div.bar.two.active div.solid {
+            top: 70%;
+        }
+
+    div.bar.three {
+        left: 40%;
+    }
+
+        div.bar.three.active div.track,
+        div.bar.three.active div.value {
+            bottom: 45%;
+        }
+
+        div.bar.three.active div.solid {
+            top: 55%;
+        }
+
+    div.bar.four {
+        left: 60%;
+    }
+
+        div.bar.four.active div.track,
+        div.bar.four.active div.value {
+            bottom: 60%;
+        }
+
+        div.bar.four.active div.solid {
+            top: 40%;
+        }
+
+    div.bar.five {
+        left: 80%;
+    }
+
+        div.bar.five.active div.track,
+        div.bar.five.active div.value {
+            bottom: 70%;
+        }
+
+        div.bar.five.active div.solid {
+            top: 30%;
+        }
+
+    div.bar.six {
+        left: 0;
+    }
+
+        div.bar.six.active div.track,
+        div.bar.six.active div.value {
+            bottom: 70%;
+        }
+
+        div.bar.six.active div.solid {
+            top: 30%;
+        }
+
+    div.bar.seven {
+        left: 20%;
+    }
+
+        div.bar.seven.active div.track,
+        div.bar.seven.active div.value {
+            bottom: 60%;
+        }
+
+        div.bar.seven.active div.solid {
+            top: 40%;
+        }
+
+    div.bar.eight {
+        left: 40%;
+    }
+
+        div.bar.eight.active div.track,
+        div.bar.eight.active div.value {
+            bottom: 50%;
+        }
+
+        div.bar.eight.active div.solid {
+            top: 50%;
+        }
+
+    div.bar.nine {
+        left: 60%;
+    }
+
+        div.bar.nine.active div.track,
+        div.bar.nine.active div.value {
+            bottom: 35%;
+        }
+
+        div.bar.nine.active div.solid {
+            top: 65%;
+        }
+
+    div.bar.ten {
+        left: 80%;
+    }
+
+        div.bar.ten.active div.track,
+        div.bar.ten.active div.value {
+            bottom: 15%;
+        }
+
+        div.bar.ten.active div.solid {
+            top: 85%;
+        }

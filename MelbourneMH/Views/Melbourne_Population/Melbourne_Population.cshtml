@@ -1,0 +1,184 @@
+﻿@model IEnumerable<MelbourneMH.Models.Melbourne_Population>
+@{
+    Layout = null;
+    ViewBag.Title = "Popmelpopulation";
+}
+    <head>
+        <link href="~/Content/laynav.css" rel="stylesheet" />
+        <link href="~/Content/narbarside.css" rel="stylesheet" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+        <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+        <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+        <link href="~/Content/bubble.css" rel="stylesheet" />
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <title>@ViewBag.Title</title>
+        <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+    </head>
+<body style="background-color:#90b4b4">
+    <div id="menu" style="background-color:#61a1ab;z-index:9999">
+        <div class="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <div class="menu-inner">
+
+            <ul class="newstyle">
+                <li class="newstyle">
+                    <a class="link-3" href="~/Home/Home">Home</a>
+                </li>
+                <li class="newstyle"> <a class="link-3" href="~/Home/DataSelection">Data</a></li>
+                <li class="newstyle"> <a class="link-3" href="~/Pop/PopOverview">Overview</a></li>
+                <li class="newstyle"><a class="link-3" href="~/Age_Distribution/Age_Distribution">AgeGroup</a></li>
+                <li class="newstyle"><a class="link-3" href="~/Suburb_Population/Suburb_Population">Suburb</a></li>
+                <li class="newstyle"><a class="link-3" href="~/Melbourne_Population/Melbourne_Population">Trend</a></li>
+                <li class="newstyle"><a class="link-3" href="~/Pop/Game">Game</a></li>
+
+            </ul>
+        </div>
+
+
+
+        <svg version="1.1" id="blob" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <path id="blob-path" d="M60,500H0V0h60c0,0,20,172,20,250S60,900,60,500z" />
+        </svg>
+    </div>
+    <script src="~/Scripts/laynav.js"></script>
+
+    <div id="container" style="border:solid 10px black;width:90%;height:250%;margin-left:6%">
+        <h1 style="text-align:center;color:white;font-size:48px">Topic: Trend</h1>
+        <h1 style="font-size:32px;margin-left:4%;margin-right:4%">
+
+            The population of Melbourne has been rising continuously in recent years.
+            By now, the total population is close to 5 million, close to good friend Sydney,
+            and last year's population growth was the highest in the country.
+            Here are some fun bubbles for you to explore!
+        </h1>
+        <div class="wrap">
+
+
+            <h1 style="font-size:18px;color:white">Hover the bubble!</h1>
+            <div class="chart">
+                <div data-value="10" data-label=" @foreach (var item in Model)
+                            {
+                                if (item.TypeId == 1)
+                                {
+                                    @Html.DisplayFor(modelItem => item.Mel_Population  )
+                                }
+
+                            }" data-x="13" data-y="13" class="chart-bubble"><p style="text-align:center;font-weight:bold;margin-top:20%;font-family: 'Courgette', cursive;">2009</p></div>
+                <div data-value="11" data-label="No.9 @foreach (var item in Model)
+                            {
+                                if (item.TypeId == 2)
+                                {
+                                    @Html.DisplayFor(modelItem => item.Mel_Population  )
+                                }
+
+                            }" data-x="20" data-y="20" class="chart-bubble"><p style="font-family: 'Courgette', cursive;text-align:center;font-weight:bold;margin-top:20%">2010</p></div>
+                <div data-value="12" data-label="No.8 @foreach (var item in Model)
+                            {
+                                if (item.TypeId == 3)
+                                {
+                                    @Html.DisplayFor(modelItem => item.Mel_Population  )
+                                }
+
+                            }" data-x="27" data-y="27" class="chart-bubble"><p style="font-family: 'Courgette', cursive;text-align:center;font-weight:bold;margin-top:20%">2011</p></div>
+                <div data-value="13" data-label="No.7 @foreach (var item in Model)
+                            {
+                                if (item.TypeId == 4)
+                                {
+                                    @Html.DisplayFor(modelItem => item.Mel_Population  )
+                                }
+
+                            }" data-x="34" data-y="34" class="chart-bubble"><p style="font-family: 'Courgette', cursive;text-align:center;font-weight:bold;margin-top:20%">2012</p></div>
+                <div data-value="14" data-label="No.6 @foreach (var item in Model)
+                            {
+                                if (item.TypeId == 5)
+                                {
+                                    @Html.DisplayFor(modelItem => item.Mel_Population  )
+                                }
+
+                            }" data-x="41" data-y="41" class="chart-bubble"><p style="font-family: 'Courgette', cursive;text-align:center;font-weight:bold;margin-top:20%">2013</p></div>
+                <div data-value="15" data-label="No.5 @foreach (var item in Model)
+                            {
+                                if (item.TypeId == 6)
+                                {
+                                    @Html.DisplayFor(modelItem => item.Mel_Population  )
+                                }
+
+                            }" data-x="48" data-y="48" class="chart-bubble"><p style="font-family: 'Courgette', cursive;text-align:center;font-weight:bold;margin-top:20%">2014</p></div>
+                <div data-value="16" data-label="No.4 @foreach (var item in Model)
+                            {
+                                if (item.TypeId == 7)
+                                {
+                                    @Html.DisplayFor(modelItem => item.Mel_Population  )
+                                }
+
+                            }" data-x="55" data-y="55" class="chart-bubble"><p style="font-family: 'Courgette', cursive;text-align:center;font-weight:bold;margin-top:20%">2015</p></div>
+                <div data-value="17" data-label="No.3 @foreach (var item in Model)
+                            {
+                                if (item.TypeId == 8)
+                                {
+                                    @Html.DisplayFor(modelItem => item.Mel_Population  )
+                                }
+
+                            }" data-x="62" data-y="62" class="chart-bubble"><p style="font-family: 'Courgette', cursive;text-align:center;font-weight:bold;margin-top:20%">2016</p></div>
+                <div data-value="18" data-label="No.2 @foreach (var item in Model)
+                            {
+                                if (item.TypeId == 9)
+                                {
+                                    @Html.DisplayFor(modelItem => item.Mel_Population  )
+                                }
+
+                            }" data-x="69" data-y="69" class="chart-bubble"><p style="font-family: 'Courgette', cursive;text-align:center;font-weight:bold;margin-top:20%">2017</p></div>
+                <div data-value="20" data-label="No.1 @foreach (var item in Model)
+                            {
+                                if (item.TypeId == 10)
+                                {
+                                    @Html.DisplayFor(modelItem => item.Mel_Population  )
+                                }
+
+                            }" data-x="76" data-y="76" class="chart-bubble"><p style="font-family: 'Courgette', cursive;text-align:center;font-weight:bold;margin-top:20%">2018</p></div>
+
+                <div class="lines">
+                    <div class="lines-horz"></div>
+                    <div class="lines-horz"></div>
+                    <div class="lines-horz"></div>
+                    <div class="lines-horz"></div>
+                    <div class="lines-vert"></div>
+                    <div class="lines-vert"></div>
+                    <div class="lines-vert"></div>
+                    <div class="lines-vert"></div>
+                </div>
+
+            </div>
+            <h1 style="text-align:center;font-size:18px;color:white">Years growing </h1>
+        </div>
+        <h1 style="margin-left:4%">Tip!</h1>
+        <p style="font-family: 'Hammersmith One', sans-serif;font-size:24px;margin-left:4%;margin-right:4%">
+            Is the colored bubble on the picture very beautiful?            
+        </p>
+        <p style="font-family: 'Hammersmith One', sans-serif;font-size:24px;margin-left:4%;margin-right:4%">
+            Each bubble corresponds to a year,from left to right,the year gradually increases,and the rightmost bubble corresponds to the year just passed.
+        </p>
+
+        <p style="font-family: 'Hammersmith One', sans-serif;font-size:24px;margin-left:4%;margin-right:4%">
+            What did you find when you moved your mouse over the bubble?
+        </p>
+
+        <p style="font-family: 'Hammersmith One', sans-serif;font-size:24px;margin-left:4%;margin-right:4%">
+            What is the difference between the leftmost bubble and it?
+        </p>
+
+        <p style="font-family: 'Hammersmith One', sans-serif;font-size:24px;margin-left:4%;margin-right:4%">
+            Believe that you can find out the law.
+        </p>
+
+
+    </div>
+    <script src="~/Scripts/bubble.js"></script>
+
+</body>

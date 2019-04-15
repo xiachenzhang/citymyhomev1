@@ -1,0 +1,48 @@
+﻿
+
+.button {
+    display: inline-block;
+    margin: auto;
+    width: 800px;
+    height: 160px;
+    border: 4px;
+    background: #ffbcbc;
+    position: relative;
+    overflow: hidden;
+    font-size: 85%;
+    border-style: solid;
+    border-radius: 12px;
+    color: black;
+    font-family: 'Lobster', cursive;
+}
+
+    .button:before {
+        content: '';      
+        background-image: url('wordsbackground.jpg');
+        width: 1600px;
+        height: 1200px;
+        position: absolute;
+        -webkit-transform: translate(-1000px, -400px) rotate(130deg);
+        transform: translate(-1000px, -400px) rotate(130deg);
+        transition: all 700ms ease;     
+        color: black;
+    }
+
+    .button:after {
+        content: attr(data-word);
+        color: black;
+        font-size: 4em;
+        position: relative;
+        z-index: 100;
+        transition: all 200ms ease;
+        font-weight: 200;
+    }
+
+    .button:hover:after {
+        font-size: 4.4em;
+    }
+
+    .button:hover:before {
+        -webkit-transform: translate(-200px, -400px) rotate(130deg);
+        transform: translate(-200px, -400px) rotate(130deg);
+    }

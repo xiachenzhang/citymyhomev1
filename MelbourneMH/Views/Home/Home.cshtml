@@ -1,0 +1,294 @@
+﻿@{
+    ViewBag.Title = "Home";
+    Layout = null;
+}
+
+<html>
+<head>
+
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <link href="~/Content/navbar.css" rel="stylesheet" />
+    <link href="https://www.w3schools.com/lib/w3.css" rel="stylesheet" />
+
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/s3.css" rel="stylesheet" />
+    <link href="~/Content/card.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <link href="~/Content/photo.css" rel="stylesheet" />
+    <link href="~/Content/slider.css" rel="stylesheet" />
+    <link href="~/Content/words.css" rel="stylesheet" />
+    <link href="~/Content/load.css" rel="stylesheet" />
+    <link href="~/Content/dog.css" rel="stylesheet" />
+    <script src="https://www.w3schools.com/appml/2.0.3/appml.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+
+</head>
+    <body >
+
+    <div class="load" style="margin-left:-30%;margin-top:-18%;"><hr /><hr /><hr /><hr /></div>
+    <button data-word='Melbourne, my home' class="button" style="width:50%;margin-top:3%"></button>
+    <nav id="nav-3">
+        <a class="link-3" href="~/Home/Home">Home</a>
+        <a class="link-3" href="~/Home/Introduction">Introduction</a>
+        <a class="link-3" href="~/Home/DataSelection">Data</a>
+        <a class="link-3" href="~/Home/Adult">For Parents and Teachers</a>
+        <a class="link-3" href="~/Home/Aboutus">About us</a>
+        <a class="link-3" href="~/Home/Contact">Contact us</a>
+
+    </nav>
+    <section id="screen1">
+        <div class="slider" id="slider" data-width="100">
+            <button class="control_next">&rarr;</button>
+            <button class="control_prev">&larr;</button>
+            <ul>
+                <li class="actslide">
+                    <div class="slide" style="background-image: url('../../Content/children-593313_1280.jpg');">
+                        <div class="shadow">
+                            <div class="teaser">
+
+                                <h3></h3>
+                                <h2></h2>
+
+                                <p></p>
+
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="slide" style=" background-image: url('../../Content/pexels-photo-1518836.jpeg');
+">
+                        <div class="shadow">
+                            <div class="teaser">
+
+                                <h3></h3>
+                                <h2></h2>
+
+                                <p></p>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="slide" style="background-image: url('../../Content/pexels-photo-1720186.jpeg');">
+                        <div class="shadow">
+                            <div class="teaser">
+
+                                <h3></h3>
+                                <h2></h2>
+
+                                <p></p>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="progress">
+                <div class="bar"></div>
+            </div>
+
+        </div>
+
+
+
+        <script src="~/Scripts/slider.js"></script>
+
+
+
+    </section>
+
+    <section id="screen2">
+
+        <section class="w3-content w3-container w3-padding-64">
+            <h1 class="w3-center" style="color:white;font-family: 'Courgette', cursive;">Our Beautiful City</h1>
+            
+
+            <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
+            <div class="w3-row-padding w3-center" appml-data="images">
+
+                <div class="w3-col m4 w3-padding-16" appml-repeat="image">
+                    <img src="{{src}}" alt="alt" style="width:100%" class="w3-hover-opacity">
+                </div>
+
+            </div>
+        </section>
+        <!-- End Container (Projects) -->
+        <!-- Modal for full size images on click-->
+       
+
+
+
+    </section>
+    
+    <section id="screen3" style="border:6px solid white">
+        <header>
+            <h1 style="font-family: 'Courgette', cursive;font-size: 48px;margin-top:40px">Interesting Features!</h1>
+            <h2 style="color:white;font-size:18px"> Our website has many kinds of interactive functions.</h2>
+            <h2 style="color:white;font-size:18px"> Check the detail by yourself and have fun.</h2>
+        </header>
+
+
+        <div class="container" style="margin-left:-475px;margin-top:-50px">
+
+
+            
+
+            
+
+            <div class="element-card">
+                <div class="front-facing">
+
+
+                    <img src="~/Content/play1.png" />
+                    <p class="title" style="font-size:24px">Game</p>
+                    <span class="atomic-number">1</span>
+                    <span class="atomic-mass">G</span>
+                </div>
+                <div class="back-facing">
+                    <p style="color:cornflowerblue;font-size:24px">Studying tired? Playing game to get relaxed!</p>
+                    <p><a class="btn" href="~/Pop/Game"  >Go</a></p>
+                </div>
+            </div>
+
+            <div class="element-card">
+                <div class="front-facing">
+                    <img src="~/Content/Read1.png" />
+                    
+                    <p class="title" style="font-size:24px">Read</p>
+                    <span class="atomic-number">2</span>
+                    <span class="atomic-mass">R</span>
+                </div>
+                <div class="back-facing">
+                    <p style="color:cornflowerblue;font-size:24px">Reading is very important not only for children but also adult.</p>
+                    <p><a class="btn" href="~/Pop/PopOverview"  >Go</a></p>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="screen4" style="margin-top:-10px">
+        
+            <h1 style="font-family: 'Courgette', cursive;font-size: 48px;color:white">Contact us!</h1>
+            
+                <div class="card" style="margin-left:40%;margin-top:10%">
+                    <figure class="front">
+                        <img src="../../content/teamlogo.png" alt="front">
+                        <div class="caption">
+                            <h2>Jupiter <span>Souls</span></h2>
+                            <p>Tp05</p>
+                            <a href="#">View more</a>
+                        </div>
+                    </figure>
+
+                    <figure class="back">
+                        <img src="http://www.jboeijenga.nl/img/back.jpg" alt="back">
+                        <div class="caption">
+                            <dl>
+                                <dt>JupiterSouls</dt>
+                                <dd>Tp05</dd>
+                                <dt>Email</dt>
+                                <dd>citymyhome@gmail.com</dd>
+                                
+                            </dl>
+                        </div>
+                    </figure>
+                </div>
+           
+        
+
+        <div class="husky" style="margin-top:10%">
+            <div class="mane">
+                <div class="coat"></div>
+            </div>
+            <div class="body">
+                <div class="head">
+                    <div class="ear"></div>
+                    <div class="ear"></div>
+                    <div class="face">
+                        <div class="eye"></div>
+                        <div class="eye"></div>
+                        <div class="nose"></div>
+                        <div class="mouth">
+                            <div class="lips"></div>
+                            <div class="tongue"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="torso"></div>
+            </div>
+            <div class="legs">
+                <div class="front-legs">
+                    <div class="leg"></div>
+                    <div class="leg"></div>
+                </div>
+                <div class="hind-leg">
+                </div>
+            </div>
+            <div class="tail">
+                <div class="tail">
+                    <div class="tail">
+                        <div class="tail">
+                            <div class="tail">
+                                <div class="tail">
+                                    <div class="tail"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="display:none">
+            <defs>
+
+
+                <filter id="squiggly-0">
+                    <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="0" />
+                    <feDisplacementMap id="displacement" in="SourceGraphic" in2="noise" scale="2" />
+                </filter>
+                <filter id="squiggly-1">
+                    <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="1" />
+                    <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" />
+                </filter>
+
+                <filter id="squiggly-2">
+                    <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="2" />
+                    <feDisplacementMap in="SourceGraphic" in2="noise" scale="2" />
+                </filter>
+                <filter id="squiggly-3">
+                    <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="3" />
+                    <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" />
+                </filter>
+
+                <filter id="squiggly-4">
+                    <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="4" />
+                    <feDisplacementMap in="SourceGraphic" in2="noise" scale="1" />
+                </filter>
+            </defs>
+        </svg>
+
+
+
+    </section>
+
+
+    <script src="~/Scripts/card.js"></script>
+    <script src="~/Scripts/s3.js"></script>
+    <script src="~/Scripts/photo.js"></script>
+    <script src="~/Scripts/navbar.js"></script>
+</body>
+
+</html>

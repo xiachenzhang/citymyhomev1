@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "DataSelection";
+    Layout = null;
+}
+
+<head>
+    <link href="~/Content/DateSelection.css" rel="stylesheet" />
+    <link href="~/Content/buttonvis.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div class="cont s--inactive">
+        <!-- cont inner start -->
+        <div class="cont__inner">
+            <!-- el start -->
+            <div class="el">
+                <div class="el__overflow">
+                    <div class="el__inner">
+                        <div class="el__bg"></div>
+                        <div class="el__preview-cont">
+                            <h2 class="el__heading" style="color:#f9c125">Population</h2>
+                        </div>
+                        <div class="el__content">
+                            <div id="container" style="border:4px solid black;background-color:ghostwhite;margin-left:25%;margin-right:25%;height:100%">
+                                <div class="el__text" style="margin-left:10%;color:black">Introduction</div>
+                                <p style="font-size:18px;color:black;margin-left:15%;margin-right:15%;margin-top:10%">                                    
+                                    In this module, you can view different charts about Melbourne population,
+                                    and play interesting memory game.
+                                    How many children in your age in Melbourne?
+                                    Are there more boys or more girls in Melbourne?
+                                    Which suburb has the most population?
+                                    How the population changed in Melbourne?
+                                    …
+                                    By reading through this module, you will know the answers.
+                                </p>
+                                <a href="~/Pop/PopOverview" class="button" style="float:right;background-color:#f4ec52;color:#e54242;font-size:18px">Let's Go!</a>
+                            </div>
+                            <div class="el__close-btn"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="el__index">
+                    <div class="el__index-back">1</div>
+                    <div class="el__index-front">
+                        <div class="el__index-overlay" data-index="1">1</div>
+                    </div>
+                </div>
+            </div>
+           
+            <!-- el end -->
+        </div>
+        <!-- cont inner end -->
+    </div>
+
+    <a href="~/Home/Home"  class="icon-link">
+        <img src="../../content/homedata.ico">
+    </a>
+  
+    <script src="~/Scripts/DataSelection.js"></script>
+</body>

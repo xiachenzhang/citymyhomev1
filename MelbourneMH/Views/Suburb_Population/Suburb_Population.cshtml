@@ -1,0 +1,421 @@
+﻿@model IEnumerable<MelbourneMH.Models.Suburb_Population>
+@{
+    Layout = null;
+    ViewBag.Title = "Popsuburb";
+}
+<head>
+    <link href="~/Content/laynav.css" rel="stylesheet" />
+    <link href="~/Content/narbarside.css" rel="stylesheet" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/barchart.css" rel="stylesheet" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://www.google.com/jsapi"></script>
+</head>
+<body style="background-color:#90b4b4">
+    <div id="menu" style="background-color:#90b4b4;z-index:9999">
+        <div class="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <div class="menu-inner">
+
+            <ul class="newstyle">
+                <li class="newstyle">
+                    <a class="link-3" href="~/Home/Home">Home</a>
+                </li>
+                <li class="newstyle"> <a class="link-3" href="~/Home/DataSelection">Data</a></li>
+                <li class="newstyle"> <a class="link-3" href="~/Pop/PopOverview">Overview</a></li>
+                <li class="newstyle"><a class="link-3" href="~/Age_Distribution/Age_Distribution">AgeGroup</a></li>
+                <li class="newstyle"><a class="link-3" href="~/Suburb_Population/Suburb_Population">Suburb</a></li>
+                <li class="newstyle"><a class="link-3" href="~/Melbourne_Population/Melbourne_Population">Trend</a></li>
+                <li class="newstyle"><a class="link-3" href="~/Pop/Game">Game</a></li>
+
+            </ul>
+        </div>
+        <svg version="1.1" id="blob" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <path id="blob-path" d="M60,500H0V0h60c0,0,20,172,20,250S60,900,60,500z" />
+        </svg>
+    </div>
+    <script src="~/Scripts/laynav.js"></script>
+    <div id="container" style="border:solid 10px black;width:90%;height:330%;margin-left:6%">
+
+        <h1 style="text-align:center;color:white;font-size:48px">Topic: Suburb</h1>
+        <h1 style="font-size:32px;margin-left:4%;margin-right:4%">
+            There are 245 suburbs in Melbourne. In addition to the bustling buildings in the city centre, each suburb has its own style and character. And besides the vast gap between the population, each suburb can give you a different feeling. Let us look at the total population in different regions!
+        </h1>
+        <h1 style="text-align:center;color:white;font-size:24px">Top Five Most Populous Suburbs</h1>
+        <div class="component bar-chart" style="background-color:#90b4b4">
+
+            <div class="container" style="width:100%;height:100%;margin-top:5%">
+                <button>Show</button>
+                <div class="bar one active">
+                    <div class="track"></div>
+                    <div class="value">
+
+                        <img src="~/Content/lion15.png" />
+                        <h1>5</h1>
+
+                    </div>
+                    <div class="solid">
+                        <h3 class="title">
+                            @foreach (var item in Model)
+                            {
+                                if (item.TypeId == 5)
+                                {
+                                    @Html.DisplayFor(modelItem => item.Suburb_Name)
+                                }
+
+                            }
+                        </h3>
+                        <h6>
+                            @foreach (var item in Model)
+                            {
+                                if (item.TypeId == 5)
+                                {
+                                    @Html.DisplayFor(modelItem => item.Suburb_Population1)
+                                }
+
+                            }
+                        </h6>
+
+
+                    </div>
+                </div>
+
+                <div class="bar two active">
+                    <div class="track"></div>
+                    <div class="value">
+
+                        <img src="~/Content/lion14.png" />
+                        <h1>4</h1>
+
+                    </div>
+                    <div class="solid">
+                        <h3 class="title">
+                            @foreach (var item in Model)
+                            {
+                                if (item.TypeId == 4)
+                                {
+                                    @Html.DisplayFor(modelItem => item.Suburb_Name)
+                                }
+
+                            }
+                        </h3>
+                        <h6>
+                            @foreach (var item in Model)
+                            {
+                                if (item.TypeId == 4)
+                                {
+                                    @Html.DisplayFor(modelItem => item.Suburb_Population1)
+                                }
+
+                            }
+                        </h6>
+
+                    </div>
+                </div>
+
+                <div class="bar three active">
+                    <div class="track"></div>
+                    <div class="value">
+
+                        <img src="~/Content/lion13.png" />
+                        <h1>3</h1>
+
+                    </div>
+                    <div class="solid">
+                        <h3 class="title">
+                            @foreach (var item in Model)
+                            {
+                                if (item.TypeId == 3)
+                                {
+                                    @Html.DisplayFor(modelItem => item.Suburb_Name)
+                                }
+
+                            }
+                        </h3>
+                        <h6>
+                            @foreach (var item in Model)
+                            {
+                                if (item.TypeId == 3)
+                                {
+                                    @Html.DisplayFor(modelItem => item.Suburb_Population1)
+                                }
+
+                            }
+                        </h6>
+
+                    </div>
+                </div>
+
+                <div class="bar four active">
+                    <div class="track"></div>
+                    <div class="value">
+
+                        <img src="~/Content/lion12.png" />
+                        <h1>2</h1>
+
+                    </div>
+                    <div class="solid">
+                        <h3 class="title">
+                            @foreach (var item in Model)
+                            {
+                                if (item.TypeId == 2)
+                                {
+                                    @Html.DisplayFor(modelItem => item.Suburb_Name)
+                                }
+
+                            }
+                        </h3>
+                        <h6>
+                            @foreach (var item in Model)
+                            {
+                                if (item.TypeId == 2)
+                                {
+                                    @Html.DisplayFor(modelItem => item.Suburb_Population1)
+                                }
+
+                            }
+                        </h6>
+                    </div>
+                </div>
+                <div class="bar five active">
+                    <div class="track"></div>
+                    <div class="value">
+
+                        <img src="~/Content/lion11.png" />
+                        <h1>1</h1>
+
+                    </div>
+                    <div class="solid">
+                        <h3 class="title">
+                            @foreach (var item in Model)
+                            {
+                                if (item.TypeId == 1)
+                                {
+                                    @Html.DisplayFor(modelItem => item.Suburb_Name)
+                                }
+
+                            }
+                        </h3>
+                        <h6>
+                            @foreach (var item in Model)
+                            {
+                                if (item.TypeId == 1)
+                                {
+                                    @Html.DisplayFor(modelItem => item.Suburb_Population1)
+                                }
+
+                            }
+                        </h6>
+                        <h6 class="title">
+                            ↑ people amount!
+                        </h6>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <br /><br /><br /><br /><br /><br />
+        <h1 style="text-align:center;color:white;font-size:24px">Top Five Least Populous Suburbs</h1>
+
+        <div class="component bar-chart" style="background-color:#90b4b4">
+
+            <div class="container" style="width:100%;height:100%;margin-top:10px">
+                <button>Show</button>
+                <div class="bar six active">
+                    <div class="track"></div>
+                    <div class="value">
+
+
+                        <img src="~/Content/rabbit11.png" />
+                        <h1>6</h1>
+
+                    </div>
+                    <div class="solid">
+                        <h3 class="title">
+                            @foreach (var item in Model)
+                            {
+                                if (item.TypeId == 6)
+                                {
+                                    @Html.DisplayFor(modelItem => item.Suburb_Name)
+                                }
+
+                            }
+                        </h3>
+                        <h6>
+                            @foreach (var item in Model)
+                            {
+                                if (item.TypeId == 6)
+                                {
+                                    @Html.DisplayFor(modelItem => item.Suburb_Population1)
+                                }
+
+                            }
+                        </h6>
+
+                    </div>
+                </div>
+
+                <div class="bar seven active">
+                    <div class="track"></div>
+                    <div class="value">
+
+
+                        <img src="~/Content/rabbit12.png" />
+                        <h1>7</h1>
+
+                    </div>
+                    <div class="solid">
+                        <h3 class="title">
+                            @foreach (var item in Model)
+                            {
+                                if (item.TypeId == 7)
+                                {
+                                    @Html.DisplayFor(modelItem => item.Suburb_Name)
+                                }
+
+                            }
+                        </h3>
+                        <h6>
+                            @foreach (var item in Model)
+                            {
+                                if (item.TypeId == 7)
+                                {
+                                    @Html.DisplayFor(modelItem => item.Suburb_Population1)
+                                }
+
+                            }
+                        </h6>
+
+                    </div>
+                </div>
+
+                <div class="bar eight active">
+                    <div class="track"></div>
+                    <div class="value">
+
+
+                        <img src="~/Content/rabbit13.png" />
+                        <h1>8</h1>
+
+                    </div>
+                    <div class="solid">
+                        <h3 class="title">
+                            @foreach (var item in Model)
+                            {
+                                if (item.TypeId == 8)
+                                {
+                                    @Html.DisplayFor(modelItem => item.Suburb_Name)
+                                }
+
+                            }
+                        </h3>
+                        <h6>
+                            @foreach (var item in Model)
+                            {
+                                if (item.TypeId == 8)
+                                {
+                                    @Html.DisplayFor(modelItem => item.Suburb_Population1)
+                                }
+
+                            }
+                        </h6>
+
+                    </div>
+                </div>
+
+                <div class="bar nine active">
+                    <div class="track"></div>
+                    <div class="value">
+
+
+                        <img src="~/Content/rabbit14.png" />
+                        <h1>9</h1>
+
+                    </div>
+                    <div class="solid">
+                        <h3 class="title">
+                            @foreach (var item in Model)
+                            {
+                                if (item.TypeId == 9)
+                                {
+                                    @Html.DisplayFor(modelItem => item.Suburb_Name)
+                                }
+
+                            }
+                        </h3>
+                        <h6>
+                            @foreach (var item in Model)
+                            {
+                                if (item.TypeId == 9)
+                                {
+                                    @Html.DisplayFor(modelItem => item.Suburb_Population1)
+                                }
+
+                            }
+                        </h6>
+                    </div>
+                </div>
+                <div class="bar ten active">
+                    <div class="track"></div>
+                    <div class="value">
+
+
+                        <img src="~/Content/rabbit15.png" />
+                        <h1>10</h1>
+
+                    </div>
+                    <div class="solid">
+                        <h3 class="title">
+                            @foreach (var item in Model)
+                            {
+                                if (item.TypeId == 10)
+                                {
+                                    @Html.DisplayFor(modelItem => item.Suburb_Name)
+                                }
+
+                            }
+                        </h3>
+                        <h6>
+                            @foreach (var item in Model)
+                            {
+                                if (item.TypeId == 10)
+                                {
+                                    @Html.DisplayFor(modelItem => item.Suburb_Population1)
+                                }
+
+                            }
+                        </h6>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <h1 style="font-family: 'Hammersmith One', sans-serif;font-size:32px;margin-left:4%;">Tip!</h1>
+        <p style="font-family: 'Hammersmith One', sans-serif;font-size:24px;margin-left:4%;margin-right:4%">
+            The lion is the forest overlord, the rabbit is cute but weaker than lion.
+        </p>
+        <p style="font-family: 'Hammersmith One', sans-serif;font-size:24px;margin-left:4%;margin-right:4%">
+            What do you think of when you see the ranking above?
+        </p>
+        <p style="font-family: 'Hammersmith One', sans-serif;font-size:24px;margin-left:4%;margin-right:4%">
+            What do you find when look at the size of the lions and rabbits carefully?
+        </p>
+        <p style="font-family: 'Hammersmith One', sans-serif;font-size:24px;margin-left:4%;margin-right:4%">
+            Enjoy thinking and exploring, you can find the right answer!
+        </p>
+    </div>
+
+
+
+    <script src="~/Scripts/barchart.js"></script>
+    
+    
+
+</body>

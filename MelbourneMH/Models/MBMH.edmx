@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MBMH.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Age_Distribution">
+          <Key>
+            <PropertyRef Name="TypeId" />
+          </Key>
+          <Property Name="TypeId" Type="int" Nullable="false" />
+          <Property Name="Year" Type="nvarchar(max)" />
+          <Property Name="Age_Group" Type="nvarchar(max)" />
+          <Property Name="Age_Description" Type="nvarchar(max)" />
+          <Property Name="AgeDist%" Type="float" />
+          <Property Name="Male_Population" Type="int" />
+          <Property Name="Female_Population" Type="int" />
+          <Property Name="Male%" Type="decimal" Precision="3" Scale="2" />
+          <Property Name="Female%" Type="decimal" Precision="3" Scale="2" />
+        </EntityType>
+        <EntityType Name="Gender_Population">
+          <Key>
+            <PropertyRef Name="TypeId" />
+          </Key>
+          <Property Name="TypeId" Type="int" Nullable="false" />
+          <Property Name="Year" Type="nvarchar(max)" />
+          <Property Name="Male_Population" Type="int" />
+          <Property Name="Female_Population" Type="int" />
+          <Property Name="Male%" Type="decimal" Precision="3" Scale="2" />
+          <Property Name="Female%" Type="decimal" Precision="3" Scale="2" />
+        </EntityType>
+        <EntityType Name="Melbourne_Population">
+          <Key>
+            <PropertyRef Name="TypeId" />
+          </Key>
+          <Property Name="TypeId" Type="int" Nullable="false" />
+          <Property Name="Year" Type="nvarchar(max)" />
+          <Property Name="Mel_Population" Type="int" />
+        </EntityType>
+        <EntityType Name="Suburb_Population">
+          <Key>
+            <PropertyRef Name="TypeId" />
+          </Key>
+          <Property Name="TypeId" Type="int" Nullable="false" />
+          <Property Name="Year" Type="nvarchar(max)" />
+          <Property Name="Suburb_Name" Type="nvarchar(max)" />
+          <Property Name="Suburb_Population" Type="int" />
+        </EntityType>
+        <EntityType Name="Table">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="MBMHStoreContainer">
+          <EntitySet Name="Age_Distribution" EntityType="Self.Age_Distribution" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gender_Population" EntityType="Self.Gender_Population" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Melbourne_Population" EntityType="Self.Melbourne_Population" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Suburb_Population" EntityType="Self.Suburb_Population" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MBMH" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Age_Distribution">
+          <Key>
+            <PropertyRef Name="TypeId" />
+          </Key>
+          <Property Name="TypeId" Type="Int32" Nullable="false" />
+          <Property Name="Year" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Age_Group" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Age_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AgeDist_" Type="Double" />
+          <Property Name="Male_Population" Type="Int32" />
+          <Property Name="Female_Population" Type="Int32" />
+          <Property Name="Male_" Type="Decimal" Precision="3" Scale="2" />
+          <Property Name="Female_" Type="Decimal" Precision="3" Scale="2" />
+        </EntityType>
+        <EntityType Name="Gender_Population">
+          <Key>
+            <PropertyRef Name="TypeId" />
+          </Key>
+          <Property Name="TypeId" Type="Int32" Nullable="false" />
+          <Property Name="Year" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Male_Population" Type="Int32" />
+          <Property Name="Female_Population" Type="Int32" />
+          <Property Name="Male_" Type="Decimal" Precision="3" Scale="2" />
+          <Property Name="Female_" Type="Decimal" Precision="3" Scale="2" />
+        </EntityType>
+        <EntityType Name="Melbourne_Population">
+          <Key>
+            <PropertyRef Name="TypeId" />
+          </Key>
+          <Property Name="TypeId" Type="Int32" Nullable="false" />
+          <Property Name="Year" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Mel_Population" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Suburb_Population">
+          <Key>
+            <PropertyRef Name="TypeId" />
+          </Key>
+          <Property Name="TypeId" Type="Int32" Nullable="false" />
+          <Property Name="Year" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Suburb_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Suburb_Population1" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Table">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="MelbourneMHVersion1_dbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Age_Distribution" EntityType="Self.Age_Distribution" />
+          <EntitySet Name="Gender_Population" EntityType="Self.Gender_Population" />
+          <EntitySet Name="Melbourne_Population" EntityType="Self.Melbourne_Population" />
+          <EntitySet Name="Suburb_Population" EntityType="Self.Suburb_Population" />
+          <EntitySet Name="Table" EntityType="Self.Table" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MBMHStoreContainer" CdmEntityContainer="MelbourneMHVersion1_dbEntities">
+          <EntitySetMapping Name="Age_Distribution">
+            <EntityTypeMapping TypeName="MBMH.Age_Distribution">
+              <MappingFragment StoreEntitySet="Age_Distribution">
+                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Age_Group" ColumnName="Age_Group" />
+                <ScalarProperty Name="Age_Description" ColumnName="Age_Description" />
+                <ScalarProperty Name="AgeDist_" ColumnName="AgeDist%" />
+                <ScalarProperty Name="Male_Population" ColumnName="Male_Population" />
+                <ScalarProperty Name="Female_Population" ColumnName="Female_Population" />
+                <ScalarProperty Name="Male_" ColumnName="Male%" />
+                <ScalarProperty Name="Female_" ColumnName="Female%" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gender_Population">
+            <EntityTypeMapping TypeName="MBMH.Gender_Population">
+              <MappingFragment StoreEntitySet="Gender_Population">
+                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Male_Population" ColumnName="Male_Population" />
+                <ScalarProperty Name="Female_Population" ColumnName="Female_Population" />
+                <ScalarProperty Name="Male_" ColumnName="Male%" />
+                <ScalarProperty Name="Female_" ColumnName="Female%" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Melbourne_Population">
+            <EntityTypeMapping TypeName="MBMH.Melbourne_Population">
+              <MappingFragment StoreEntitySet="Melbourne_Population">
+                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Mel_Population" ColumnName="Mel_Population" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Suburb_Population">
+            <EntityTypeMapping TypeName="MBMH.Suburb_Population">
+              <MappingFragment StoreEntitySet="Suburb_Population">
+                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Suburb_Name" ColumnName="Suburb_Name" />
+                <ScalarProperty Name="Suburb_Population1" ColumnName="Suburb_Population" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table">
+            <EntityTypeMapping TypeName="MBMH.Table">
+              <MappingFragment StoreEntitySet="Table">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

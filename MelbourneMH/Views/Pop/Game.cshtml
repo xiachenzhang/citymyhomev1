@@ -1,0 +1,95 @@
+﻿@{
+    Layout = null;
+    ViewBag.Title = "Game";
+}
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Abel|Lobster" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <link href="~/Content/laynav1.css" rel="stylesheet" />
+    <link href="~/Content/narbarside.css" rel="stylesheet" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Hammersmith+One" rel="stylesheet">
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/popgame.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="menu" style="background-color:#61a1ab;z-index:9999">
+        <div class="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <div class="menu-inner">
+
+            <ul class="newstyle">
+                <li class="newstyle">
+                    <a class="link-3" href="~/Home/Home">Home</a>
+                </li>
+                <li class="newstyle"> <a class="link-3" href="~/Home/DataSelection">Data</a></li>
+                <li class="newstyle"> <a class="link-3" href="~/Pop/PopOverview">Overview</a></li>
+                <li class="newstyle"><a class="link-3" href="~/Age_Distribution/Age_Distribution">AgeGroup</a></li>
+                <li class="newstyle"><a class="link-3" href="~/Suburb_Population/Suburb_Population">Suburb</a></li>
+                <li class="newstyle"><a class="link-3" href="~/Melbourne_Population/Melbourne_Population">Trend</a></li>
+                <li class="newstyle"><a class="link-3" href="~/Pop/Game">Game</a></li>
+
+            </ul>
+        </div>
+        <svg version="1.1" id="blob" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <path id="blob-path" d="M60,500H0V0h60c0,0,20,172,20,250S60,900,60,500z" />
+        </svg>
+    </div>
+    <script src="~/Scripts/laynav.js"></script>
+
+
+    <div class="align-center">
+
+        <h1 class="heading">Check your memory!</h1>
+        <p class="desc">An interesting game!</p>
+
+        <button class="btn" id="btn-start">
+            Start
+        </button>
+        <a href="~/Pop/PopOverview">
+            <button class="btn" style="margin-left:30px">
+                Learn More
+            </button>
+        </a>
+
+        <div class="cards-container">
+            <div class="flip-container hide" id="card-template">
+                <div class="flipper">
+                    <div class="front">
+                        <label>Population</label>
+                    </div>
+                    <div class="back">
+                        <label></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="timer">
+            <label id="minutes"></label>:
+            <label id="seconds"></label>
+            <div class="time">
+                MY BEST TIME: <span id="bestTime"></span>
+            </div>
+        </div>
+    </div>
+
+    <h1 class="heading" style="margin-left:70px;">Rule:</h1>
+    <p class="desc" style="font-family: 'Hammersmith One', sans-serif;font-size:18px;margin-left:100px;margin-right:70px;color:#2b299b">
+        This game has 8 question cards and 8 answer cards for you.
+        Each question card corresponds to an answer card. The position of each card in each game will not change.
+        So it not only challenges your knowledge, but also memory.
+        In the upper right corner, there are timers that record the fastest time you find all the answers, and challenge your best record!
+    </p>
+
+    <script src="~/Scripts/popgame.js"></script>
+
+</body>

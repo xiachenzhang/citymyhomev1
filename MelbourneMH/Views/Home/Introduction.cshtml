@@ -1,0 +1,99 @@
+﻿@{
+    ViewBag.Title = "Introduction";
+    Layout = null;
+
+}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    <link href="~/Content/begin.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <title>@ViewBag.Title</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+    <link href="~/Content/buttonvis.css" rel="stylesheet" />
+    <link href="~/Content/icon.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+
+</head>
+<body bgcolor="#f6eabe">
+    <div id="container" style=" border-style: dotted;
+    border-width: thick; color:#d57e00">
+        <h1 align="center" class="title"><img src="../../Content/home1.ico" style="position:relative;top:10px;margin-left:-20px" />@Html.ActionLink("Melbourne, My home", "Home", "Home",  htmlAttributes: new { id = "registerLink", style = "color:black;text-decoration:none;font-family: 'Courgette', cursive;" })</h1>
+        <h2 align="center" class="title1" style="font-family: 'Courgette', cursive;">Know your city, know your home</h2>
+    </div>
+
+        <section class="strips">
+            
+
+            <article class="strips__strip">
+                
+                <div class="strip__content">
+                    <h1 class="strip__title" data-name="Ipsum">
+                        <img src="~/Content/Data1.png" />
+                    </h1>
+                    
+                    <div class="strip__inner-text">
+                        <h2>Data</h2>
+                        <p style="font-size:24px;color:floralwhite">
+                            We have prepared a lot of topics that you will be interested in.<br />
+                            Walking people in the city, changing environment, <br />
+                            magical culture,transportation,cute animals.<br />
+                            Do you want to explore the distribution of small koalas?<br />
+                            Do you want to see when the uncle of the train was born?<br />
+                            Start your journey of discovery.
+                        </p>
+                        <a href="~/Home/DataSelection" class="button" style="float:right;margin-top:16%;background-color:#f4ec52;color:#e54242;font-size:24px">Go!</a>
+
+                    </div>
+                </div>
+            </article>
+            <article class="strips__strip">
+                <div class="strip__content">
+                    
+                    <h1 class="strip__title" data-name="Dolor">
+                        <img src="~/Content/chart.png" />
+                    </h1>
+                    <div class="strip__inner-text">
+                        <h2>Chart</h2>
+                        <p style="font-size:24px;color:floralwhite">
+                            Lovely chart is one of our features.<br />
+                            We offer a variety of different styles of data charts.<br />
+                            To help you understand the exploration data.<br />
+                            Is it boring to study the boring knowledge in books?<br />
+                            Here you can explore the data in your own way.
+                        </p>
+                        <a href="~/Pop/PopOverview" class="button" style="float:right;margin-top:16%;background-color:#f4ec52;color:#e54242;font-size:24px">Go!</a>
+
+                    </div>
+                </div>
+            </article>
+            <article class="strips__strip">
+                <div class="strip__content">
+                    <h1 class="strip__title" data-name="Sit">
+                        <img src="~/Content/Game1.png" />
+                    </h1>
+                    <div class="strip__inner-text">
+                        <h2>Game</h2>
+                        <p style="font-size:24px;color:floralwhite">
+                            In addition to interesting charts, during relaxation time.<br />
+                            We also offer you a variety of small games!<br />
+                            Memory racing,colorful palette,little answering doctor.<br />
+                            Hurry and start your adventure!
+                        </p>
+                        <a href="~/Pop/Game" class="button" style="float:right;margin-top:16%;background-color:#f4ec52;color:#e54242;font-size:24px">Go!</a>
+
+                    </div>
+                </div>
+            </article>
+           
+            <i class="fa fa-close strip__close"></i>
+            <script src="~/Scripts/begin.js"></script>
+
+        </section>
+
+</body>
+
+</html>
