@@ -326,6 +326,7 @@
     <Content Include="Models\MBMH.edmx.diagram">
       <DependentUpon>MBMH.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\MelbourneMH1Iteration1 - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\MelbourneMH20190406043927 - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\MelbourneMHV11 - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\MelbourneMHVersion1 - Web Deploy.pubxml" />
